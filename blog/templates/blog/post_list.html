@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+    <head>
+        <lik rel = "stylesheet" href = "{% static 'css/blog.css' %}"></lik>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+        <script>
+                /*
+                $(document).ready(function(){
+                    $("button").click(function(){
+                        $("#div1").load("demo_test.txt");
+                    });
+                });
+                */
+                //$.ajax({ url:'time/', data : { 'search_key':search_key}, success:function(data){ $('#data_table').html(data) } })
+                $(function() {
+                    
+                    $('#AjaxStart').click(function() {
+
+                        $.ajax({ 
+                            url:'.', 
+                            dataType: "json",
+                            //type: 'POST',
+                            //data: {'today': 1},
+                            success: function(data){ $('#div1').html(data.time) }
+                             
+                        })
+                    })
+                })
+
+        </script>
+    </head>
+    <body>
+        <button id = 'AjaxStart'>AjaxStart</button>
+        <div id="div1"> new time
+        </div>
+    <p><h1>Hi there!</h1></p>
+    <p>It works!</p>
+
+    <p>{{ result.msg }}</p>
+    <p>{{ result.msg1 }}</p>
+    <p>{{ result.msg2 }}</p>
+
+    <ol>
+    {% for item in result.arr %}
+    <li>{{ item }}</li>
+    {% endfor %}
+    </ol>
+
+    {% if result.bool %}
+    <p>it is TRUE!</p>
+    {% endif %}
+
+    {% for post in posts %}
+    <p><b>{{ post.title }}</b></p>
+    <p>{{ post.text | linebreaksbr }}</p>
+    
+    {% endfor %}
+    </body>
+</html>
