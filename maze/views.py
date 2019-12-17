@@ -25,6 +25,9 @@ from . import data_input
 
 
 def register_data(request):
+    """
+    test 주석
+    """
     data_input.bulk_save()
 
     return HttpResponse(
