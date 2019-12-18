@@ -31,7 +31,7 @@ def register_data(request):
     data_input.bulk_save()
 
     return HttpResponse(
-        "<p>OK, it's ok11122221</p>")
+        "<p>OK, it's ok21</p>")
 
 
 # Create your views here.
