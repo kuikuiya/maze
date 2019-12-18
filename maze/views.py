@@ -33,6 +33,7 @@ def register_data(request):
     return HttpResponse(
         "<p>OK, it's </p>")
 
+
 # Create your views here.
 def make_character(request):
     #Character.objects.all() #filter(published_date__lte=timezone.now()).order_by('published_date')
